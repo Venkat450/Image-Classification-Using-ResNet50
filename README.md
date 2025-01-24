@@ -19,57 +19,49 @@ Install dependencies using:
 ```bash
 pip install tensorflow numpy pandas matplotlib
 ```
-Project Workflow
-Dataset Preparation:
+# Image Classification using ResNet50
 
-Grouped images into 30 categories by rock type.
-Created training and validation datasets using 12 and 4 images per category, respectively.
-Data Augmentation and Input Pipeline:
+## Project Workflow
 
-Applied augmentation techniques like rotation, shear, zoom, and flipping.
-Normalized pixel values to the range [0, 1].
-Model Architecture:
+### Dataset Preparation
+- Grouped images into 30 categories by rock type.
+- Created training and validation datasets using 12 and 4 images per category, respectively.
 
-Used ResNet50 as the base model with ImageNet weights.
-Modified the architecture by removing the top layer and adding:
-GlobalAveragePooling2D
-Dense layers with 512 and 128 neurons
-Dropout layers for regularization
-Final Dense layer with 30 neurons and a softmax activation for classification.
-Training:
+### Data Augmentation and Input Pipeline
+- Applied augmentation techniques like rotation, shear, zoom, and flipping.
+- Normalized pixel values to the range [0, 1].
 
-Initially trained only the newly added layers for a few epochs.
-Fine-tuned the entire model for 250 epochs.
-Utilized EarlyStopping and ReduceLROnPlateau callbacks for efficient training.
-Evaluation and Visualization:
+### Model Architecture
+- Used ResNet50 as the base model with ImageNet weights.
+- Modified the architecture by removing the top layer and adding:
+  - `GlobalAveragePooling2D`
+  - Dense layers with 512 and 128 neurons
+  - Dropout layers for regularization
+  - Final Dense layer with 30 neurons and a softmax activation for classification.
 
-Plotted training and validation accuracy and loss across epochs.
-Analyzed the performance trends and convergence.
-Correlation Analysis:
+### Training
+- Initially trained only the newly added layers for a few epochs.
+- Fine-tuned the entire model for 250 epochs.
+- Utilized `EarlyStopping` and `ReduceLROnPlateau` callbacks for efficient training.
 
-Calculated correlation coefficients for the next-to-last layer using Procrustes analysis to understand the relationship between the model's predictions and human judgment data.
-Results
-Training Accuracy: Gradually improved to 75.87%.
-Validation Accuracy: Achieved 29.46% after 250 epochs.
-Challenges:
-Observed overfitting as validation accuracy plateaued while training accuracy continued to increase.
-Performance improved by tweaking hyperparameters, including batch size and dropout rates.
+### Evaluation and Visualization
+- Plotted training and validation accuracy and loss across epochs.
+- Analyzed the performance trends and convergence.
 
-How to Run
-git clone <repository-link>
-cd <repository-folder>
+### Correlation Analysis
+- Calculated correlation coefficients for the next-to-last layer using Procrustes analysis to understand the relationship between the model's predictions and human judgment data.
 
-Set up the dataset directories as described.
-Execute the Jupyter Notebook or script to train and evaluate the model.
-Discussion
-Network Performance: ResNet50 demonstrated steady training accuracy improvement but struggled with validation accuracy.
-Convergence: While training loss decreased steadily, validation loss exhibited variability.
-Hyperparameter Tweaks:
-Batch size adjustments improved training consistency.
-Dropout and batch normalization layers helped mitigate overfitting.
-Future Improvements
-Explore different architectures (e.g., EfficientNet).
-Experiment with more aggressive data augmentation and learning rate schedules.
-Incorporate advanced regularization techniques.
-Acknowledgments
-Special thanks to the creators of the OSF Rock Dataset and the contributors to TensorFlow and Keras for providing robust tools for deep learning research.
+## Results
+- **Training Accuracy**: Gradually improved to **75.87%**.
+- **Validation Accuracy**: Achieved **29.46%** after 250 epochs.
+
+### Challenges
+- Observed overfitting as validation accuracy plateaued while training accuracy continued to increase.
+- Performance improved by tweaking hyperparameters, including batch size and dropout rates.
+
+## How to Run
+1. Clone the repository:
+   ```bash
+   git clone <repository-link>
+   cd <repository-folder>
+   ```
