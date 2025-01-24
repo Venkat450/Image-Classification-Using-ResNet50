@@ -64,19 +64,25 @@ pip install tensorflow numpy pandas matplotlib
    ```bash
    git clone <repository-link>
    cd <repository-folder>
-Set up the dataset directories as described.
-Execute the Jupyter Notebook or script to train and evaluate the model.
-Discussion
-Network Performance
-ResNet50 demonstrated steady training accuracy improvement but struggled with validation accuracy.
-Convergence
-While training loss decreased steadily, validation loss exhibited variability.
-Hyperparameter Tweaks
-Batch size adjustments improved training consistency.
-Dropout and batch normalization layers helped mitigate overfitting.
-Future Improvements
-Explore different architectures (e.g., EfficientNet).
-Experiment with more aggressive data augmentation and learning rate schedules.
-Incorporate advanced regularization techniques.
-Acknowledgments
-Special thanks to the creators of the OSF Rock Dataset and the contributors to TensorFlow and Keras for providing robust tools for deep learning research.
+2. Organize the dataset directories as specified in the code.
+3. Run the provided Jupyter Notebook or script to train and evaluate the model.
+
+## Discussion
+
+### Network Performance
+- ResNet50 showed consistent improvements in training accuracy; however, validation accuracy remained low, indicating potential overfitting.
+
+### Convergence
+- Training loss steadily decreased and stabilized, but validation loss showed fluctuations, pointing to challenges in generalization.
+
+### Hyperparameter Tweaks
+- Adjustments in batch size led to better training consistency.
+- Including dropout and batch normalization layers effectively reduced overfitting.
+
+## Future Improvements
+- Test different architectures like EfficientNet for potentially better generalization.
+- Experiment with enhanced data augmentation techniques and dynamic learning rate schedules.
+- Apply additional regularization methods to further mitigate overfitting.
+
+## Acknowledgments
+Gratitude to the creators of the [OSF Rock Dataset](https://osf.io/d6b9y/) and the TensorFlow and Keras communities for providing robust tools to build and train deep learning models.
